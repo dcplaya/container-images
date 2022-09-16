@@ -27,7 +27,7 @@ RUN \
 
 # Enable plugins
 # hadolint ignore=DL3059
-RUN sed -i '/^kubernetes:kubernetes/a k8s_gateway:github.com/ori-edge/k8s_gateway/tree/feature/do-not-fail' plugin.cfg
+RUN sed -i '/^kubernetes:kubernetes/a k8s_gateway:github.com/ori-edge/k8s_gateway' plugin.cfg
 # hadolint ignore=DL3059
 RUN sed -i '/^sign:sign/a mdns:github.com/openshift/coredns-mdns' plugin.cfg
 # hadolint ignore=DL3059
@@ -37,7 +37,7 @@ RUN sed -i '/^alternate:github/a wgsd:github.com/jwhited/wgsd' plugin.cfg
 
 # hadolint ignore=DL3059
 RUN \
-  go get github.com/ori-edge/k8s_gateway \
+  go get github.com/ori-edge/k8s_gateway@e7593fb5bcc75aa926227afa6297e8812e9c1160 \
   && go get github.com/coredns/alternate \
   && go get github.com/openshift/coredns-mdns \
   && go get github.com/jwhited/wgsd \
